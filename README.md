@@ -1,1 +1,3 @@
-# PhotoPlay
+# Welcome to MyApp
+
+Lorem ipsum...
