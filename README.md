@@ -1,3 +1,3 @@
-# Welcome to MyApp
+# PhotoPlay
 
-Lorem ipsum... daniel isch blöder 
+Hoi zämme!!
