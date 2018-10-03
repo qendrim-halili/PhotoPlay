@@ -113,3 +113,15 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.left {
+    font-family:Sans-serif;
+}
+
+.button--large--cta{
+    background-color: #00D8FF;
+}
+
+.search-input search-input--material{
+    text-align: right;
+}
