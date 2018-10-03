@@ -116,6 +116,7 @@ h1 {
 
 .left {
     font-family:Sans-serif;
+
 }
 
 .button--large--cta{
@@ -124,4 +125,44 @@ h1 {
 
 .search-input search-input--material{
     text-align: right;
+}
+
+.center {
+    font-size:15px;
+    font-family:Sans-serif;
+}
+
+.right {
+    padding-left: 20px;
+}
+
+.bottom-bar__line-height {
+    background-color: #FAFAFA;
+    border: 1px solid grey;
+}
+
+.button-foto {
+    padding: 8px 11px;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px #999;
+}
+
+.button-foto:hover {background-color: #E5E7EA}
+
+.button-foto:active {
+    background-color: grey;
+    box-shadow: 0 4px #666;
+    transform: translateY(2px);
+}
+
+.logo {
+    margin-left: 48%;
+    margin-top:10px;
 }

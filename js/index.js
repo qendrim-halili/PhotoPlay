@@ -57,6 +57,7 @@ window.fn.load = function(page) {
     .then(menu.close.bind(menu));
 };
 
-var camera = bridgeit.camera( 'myId', callback, {postURL: '/upload'});
+//Logo Animation
+
 
 app.initialize();
