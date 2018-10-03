@@ -144,7 +144,6 @@ h1 {
 .button-foto {
     padding: 8px 20px;
     font-size: 18px;
-    font-style: bold;
     text-align: center;
     cursor: pointer;
     outline: none;
@@ -181,6 +180,6 @@ h1 {
 
     margin: 0;
     position: absolute;
-    left: 95%;
-    top:-10%;
+    left: 80%;
+    top:-9%;
 }

@@ -54,9 +54,8 @@ window.fn.load = function(page) {
 
 
 
-// Search option
-function suchen() {
+
+function onDeviceReady() {
+    console.log(navigator.camera);
 }
-
-
 app.initialize();
