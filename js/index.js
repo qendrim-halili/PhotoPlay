@@ -27,21 +27,16 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        // this.receivedEvent('deviceready');
+        this.receivedEvent('deviceready');
+        document.getElementById('suchen').addEventListener('click', suchen, false);
+
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+    receivedEvent: function(foto) {
     }
 };
+
 
 window.fn = {};
 
@@ -57,7 +52,11 @@ window.fn.load = function(page) {
     .then(menu.close.bind(menu));
 };
 
-//Logo Animation
+
+
+// Search option
+function suchen() {
+}
 
 
 app.initialize();

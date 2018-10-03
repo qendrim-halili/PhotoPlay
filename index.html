@@ -38,6 +38,20 @@
         img-src * data:;">
         <meta charset="UTF-8">
 
+        <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyB5oZuvylRr_LwK4cbC12RZWYpLYoQKBoI",
+                authDomain: "photoplay-2018.firebaseapp.com",
+                databaseURL: "https://photoplay-2018.firebaseio.com",
+                projectId: "photoplay-2018",
+                storageBucket: "photoplay-2018.appspot.com",
+                messagingSenderId: "204245404390"
+            };
+            firebase.initializeApp(config);
+        </script>
+
 
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
@@ -69,7 +83,7 @@
           <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
               <ons-page>
                   <ons-list>
-                      <ons-list-item onclick="fn.load('home.html')" tappable>
+                      <ons-list-item onclick="fn.load('home.html')" tappable class="nav">
                           Kamera
                       </ons-list-item>
                       <ons-list-item onclick="fn.load('settings.html')" tappable>
@@ -96,20 +110,21 @@
                       Kamera
                   </div>
               </ons-toolbar>
-              <div class="logo"><img id="logo" src="img/Icon_PhotoPlay.png" height="60" width="75"/>
-
+              <div class="logo"><img class="logo" src="img/Icon_PhotoPlay.png" height="60" width="75"/>
               </div>
+              <br>
+              <br>
+              <br>
+              <br>
               <p style="text-align: center; font-size: 15px; font-family:Sans-serif; padding-top: 20px;">
                   Ein Foto-Spass für Freunde und Verwandte! <br>
                   Mit dieser Applikation kann man Fotos, welche man gerade geschossen hat, beschreiben
                   und weiss damit, wo diese entstanden sind.
               </p>
               <div class="toolbar__center">
-                  <!--<button class="button--large--cta" style="width: 217%; margin-top: 80%; font-family:Sans-serif;">
-                      Foto machen
-                  </button>-->
+
                   <div class="bottom-bar">
-                      <div class="bottom-bar__line-height" style="text-align:center"><button class="button-foto">Foto machen</button></div>
+                      <div class="bottom-bar__line-height" style="text-align:center"><button id="foto" class="button-foto">Foto machen</button></div>
                   </div>
               </div>
           </ons-page>
@@ -125,7 +140,7 @@
                   </div>
                   <div class="center">
                       Fotos
-                      <ons-toolbar-button icon="search"></ons-toolbar-button>
+                      <ons-toolbar-button id="suchen" icon="search" class="suche"></ons-toolbar-button>
 
                   </div>
               </ons-toolbar>
