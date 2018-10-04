@@ -59,8 +59,15 @@ function cameraTakePicture(){
 console.log(cameraTakePicture);
 
 navigator.camera.getPicture(onSuccess, onFail, {
-    quality: 50,
-    destinationType: Camera.DestinationType.DATA_URL });
+    quality: 80,
+    destinationType: Camera.DestinationType.DATA_URL,
+    sourceType: Camera.PictureSourceType.CAMERA,
+    mediaType: Camera.MediaType.PICTURE,
+    encodingType: Camera.EncodingType.JPEG,
+    cameraDirection: Camera.Direction.BACK,
+    targetWidth: 300,
+    targetHeight: 400
+});
 
     function onSuccess(imageData)
 {
@@ -72,39 +79,6 @@ function onFail(message) {
     alert('Failed because: ' + message);
 }
 }
-
-
-
-
-
-/*let init = {
-    function () {
-        document.getElementById('foto').addEventListener('click', app.takephoto);
-    },
-    takephoto: function () {
-        let opts = {
-            quality: 80,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.CAMERA,
-            mediaType: Camera.MediaType.PICTURE,
-            encodingType: Camera.EncodingType.JPEG,
-            cameraDirection: Camera.Direction.BACK,
-            targetWidth: 300,
-            targetHeight: 400
-        };
-
-        navigator.camera.getPicture(app.ftw, app.wtf, opts);
-    },
-    ftw: function (imgURI) {
-        document.getElementById('msg').textContent = imgURI;
-        document.getElementById('photo').src = imgURI;
-
-    },
-    wtf: function (msg) {
-        document.getElementById('msg').textContent = msg;
-    }
-};*/
-
 
 
 window.fn = {};
