@@ -43,11 +43,10 @@ var app = {
 
         // Write
         // getElementById
-        document.getElementById("cameraTakePicture").addEventListener
-        ("click", cameraTakePicture);
-        document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
+        document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
         document.getElementById("cameraGetPicture").addEventListener("click", cameraGetPicture);
         document.getElementById("speichern").addEventListener("click", speichern);
+        document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
         //document.getElementById("weiter").addEventListener("click", weiter);
 
     },
@@ -108,22 +107,6 @@ function cameraGetPicture() {
         alert('Failed because: ' + message);
     }
 
-}
-
-function openFilePicker(selection) {
-
-    var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-    var options = setOptions(srcType);
-    var func = createNewFileEntry;
-
-    navigator.camera.getPicture(function cameraSuccess(imageUri) {
-
-
-
-    }, function cameraError(error) {
-        console.debug("Gallerieauswahl nicht möglich: " + error, "app");
-
-    }, options);
 }
 
 
