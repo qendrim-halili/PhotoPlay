@@ -46,7 +46,7 @@ var app = {
         document.getElementById("cameraTakePicture").addEventListener
         ("click", cameraTakePicture);
         document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
-        document.getElementById("openFilePicker").addEventListener("click", openFilePicker);
+        document.getElementById("cameraGetPicture").addEventListener("click", cameraGetPicture);
         document.getElementById("speichern").addEventListener("click", speichern);
         //document.getElementById("weiter").addEventListener("click", weiter);
 
@@ -76,7 +76,7 @@ var app = {
             cameraDirection: Camera.Direction.BACK,
             correctOrientation: true,
             targetWidth: 300,
-            targetHeight: 150
+            targetHeight: 200
     });
     //Foto ausgeben
     function onSuccess(imageData)
@@ -88,6 +88,26 @@ var app = {
     function onFail(message) {
         alert('Failed because: ' + message);
     }
+}
+
+
+function cameraGetPicture() {
+
+    navigator.camera.getPicture(onSuccess, onFail, {
+        quality: 100,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    });
+
+    function onSuccess(imageURL) {
+        var image = document.getElementById('myImage');
+        image.src = imageURL;
+    }
+
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
+
 }
 
 function openFilePicker(selection) {
