@@ -37,9 +37,9 @@ var app = {
 
         // Schrib wat wötsch
        // document.getElementById('suchen').addEventListener('click', suchen, false);
-        document.addEventListener('click', init);
-        //document.addEventListener('click', onSuccess);
-        //document.addEventListener('click', onFail);
+       // document.addEventListener('click', init);
+        document.getElementById("cameraTakePicture").addEventListener
+        ("click", cameraTakePicture);
 
 
     },
@@ -54,25 +54,28 @@ var app = {
 
 };
 
-/*navigator.camera.getPicture(onSuccess, onFail), {
+function cameraTakePicture(){
+console.log(camera);
+navigator.camera.getPicture(onSuccess, onFail, {
     quality: 50,
-    destinationType: Camera.DestinationType.FILE_URI }
+    destinationType: Camera.DestinationType.FILE_URI });
 
     function onSuccess(imageURI)
 {
-    var image = document.getElementById('foto');
-    image.src = imageURI;
+    var image = document.getElementById('myImage');
+    image.src = "data:image/jpeg;base64," + imageData;
 }
 
 function onFail(message) {
     alert('Failed because: ' + message);
-}*/
+}
+}
 
 
 
 
 
-let init = {
+/*let init = {
     function () {
         document.getElementById('foto').addEventListener('click', app.takephoto);
     },
@@ -98,7 +101,7 @@ let init = {
     wtf: function (msg) {
         document.getElementById('msg').textContent = msg;
     }
-};
+};*/
 
 
 
