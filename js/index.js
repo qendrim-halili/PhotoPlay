@@ -65,8 +65,8 @@ navigator.camera.getPicture(onSuccess, onFail, {
     mediaType: Camera.MediaType.PICTURE,
     encodingType: Camera.EncodingType.JPEG,
     cameraDirection: Camera.Direction.BACK,
-    targetWidth: 300,
-    targetHeight: 400
+    targetWidth: 150,
+    targetHeight: 250
 });
 
     function onSuccess(imageData)
