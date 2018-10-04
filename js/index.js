@@ -35,17 +35,50 @@ var app = {
         var value = window.localStorage.getItem("id");
         console.log(value);
 
+        // Schrib wat wötsch
         document.getElementById('suchen').addEventListener('click', suchen, false);
         document.addEventListener('deviceready', app.init);
 
+
     },
 
-    // Update DOM on a Received Event
+
+    receivedEvent: function(id) {
+
+
+        console.log('Received Event: ' + id);
+    }
 
 };
 
 
+let app = {
+    init: function () {
+        document.getElementById('foto').addEventListener('click', app.takephoto);
+    },
+    takephoto: function () {
+        let opts = {
+            quality: 80,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            mediaType: Camera.MediaType.PICTURE,
+            encodingType: Camera.EncodingType.JPEG,
+            cameraDirection: Camera.Direction.BACK,
+            targetWidth: 300,
+            targetHeight: 400
+        };
 
+        navigator.camera.getPicture(app.ftw, app.wtf, opts);
+    },
+    ftw: function (imgURI) {
+        document.getElementById('msg').textContent = imgURI;
+        document.getElementById('photo').src = imgURI;
+
+    },
+    wtf: function (msg) {
+        document.getElementById('msg').textContent = msg;
+    }
+};
 
 
 
