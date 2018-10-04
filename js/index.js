@@ -96,6 +96,8 @@ function cameraGetPicture() {
         quality: 100,
         destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+        targetWidth: 300,
+        targetHeight: 200
     });
 
     function onSuccess(imageURL) {
