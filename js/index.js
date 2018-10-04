@@ -35,7 +35,7 @@ var app = {
         // getElementById
         document.getElementById("cameraTakePicture").addEventListener
         ("click", cameraTakePicture);
-
+        document.getElementById("weiter").addEventListener("click", weiter);
 
     },
 
@@ -58,7 +58,7 @@ var app = {
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: Camera.PictureSourceType.CAMERA,
             mediaType: Camera.MediaType.PICTURE,
-            encodingType: Camera.EncodingType.PNG,
+            encodingType: Camera.EncodingType.JPEG,
             cameraDirection: Camera.Direction.BACK,
             correctOrientation: true,
             targetWidth: 250,
@@ -74,6 +74,11 @@ var app = {
     function onFail(message) {
         alert('Failed because: ' + message);
     }
+}
+
+function weiter() {
+        document.getElementById('fname');
+        document.getElementById('speichern');
 }
 
 
