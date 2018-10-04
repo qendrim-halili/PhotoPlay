@@ -36,8 +36,10 @@ var app = {
         console.log(value);
 
         // Schrib wat wötsch
-        document.getElementById('suchen').addEventListener('click', suchen, false);
-        document.addEventListener('deviceready', app.init);
+       // document.getElementById('suchen').addEventListener('click', suchen, false);
+        document.addEventListener('click', init);
+        //document.addEventListener('click', onSuccess);
+        //document.addEventListener('click', onFail);
 
 
     },
@@ -49,11 +51,29 @@ var app = {
         console.log('Received Event: ' + id);
     }
 
+
 };
 
+/*navigator.camera.getPicture(onSuccess, onFail), {
+    quality: 50,
+    destinationType: Camera.DestinationType.FILE_URI }
 
-let app = {
-    init: function () {
+    function onSuccess(imageURI)
+{
+    var image = document.getElementById('foto');
+    image.src = imageURI;
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}*/
+
+
+
+
+
+let init = {
+    function () {
         document.getElementById('foto').addEventListener('click', app.takephoto);
     },
     takephoto: function () {
@@ -72,7 +92,7 @@ let app = {
     },
     ftw: function (imgURI) {
         document.getElementById('msg').textContent = imgURI;
-        // document.getElementById('photo').src = imgURI;
+        document.getElementById('photo').src = imgURI;
 
     },
     wtf: function (msg) {
