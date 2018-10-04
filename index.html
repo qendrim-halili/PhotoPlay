@@ -101,13 +101,14 @@
             und weiss damit, wo diese entstanden sind.
         </p>
         <img id = "myImage" style="margin-left:12%;"></img>
-        <div><button id="weiter" class="button-foto" style="margin-left:15%; margin-top: 7%;">Weiter</button></div>
+        <!--<div><button onclick="show" class="button-foto" style="margin-left:15%; margin-top: 7%;">Weiter</button></div>-->
+        <div><input class="button-foto" style="margin-left: 15%; margin-top: 7%;" type="button" name="answer" value="Weiter" id="show" /></div>
 
-        <div>
+        <div id="hidden" style="display:none;">
             <form>
                 <input type="text" id="fname" name="fname" placeholder="Name">
             </form>
-            <button id="speichern" class="button-speichern" style="margin-left:15%; margin-top: 1%;">Speichern</button>
+            <button id="cameraUploadPicture" class="button-speichern" style="margin-left:15%; margin-top: 1%;">Speichern</button>
         </div>
         <div class="toolbar__center">
 

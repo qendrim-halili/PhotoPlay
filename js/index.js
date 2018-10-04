@@ -45,8 +45,8 @@ var app = {
         // getElementById
         document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
         document.getElementById("cameraGetPicture").addEventListener("click", cameraGetPicture);
-        document.getElementById("speichern").addEventListener("click", speichern);
-        //document.getElementById("weiter").addEventListener("click", weiter);
+        document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
+        document.getElementById("show").addEventListener("click", show);
 
         // readDB();
     },
@@ -61,6 +61,7 @@ var app = {
 
 
 };
+
     //Fotoeigenschaften
     function cameraTakePicture(){
 
@@ -116,15 +117,22 @@ function cameraGetPicture() {
 
 }
 
+//Show Textbox and button
+function show() {
+    document.getElementById('hidden').style.display = "block";
+}
+
 
 //Upload pic in Firebase
 function cameraUploadPicture(imageData){
+    var name = document.getElementById("fname").value;
     var storageRef = firebase.storage().ref('/');
     var timestamp = Math.round(+new Date()/1000);
-    var picture = storageRef.child('fname' + timestamp + '.jpg');
+    var picture = storageRef.child(name + timestamp + '.jpg');
 
     picture.putString(imageData, 'base64', {contentType:'image/jpg'});
 
+    //Upload Zeit
     setTimeout(function(){
         downloadLink(picture);
     }, 500);
@@ -142,7 +150,7 @@ function downloadLink(picture) {
 
 
 
-function speichern() {
+/*function speichern() {
     var name = document.getElementById("fname").value;
 
     var obj = {};
@@ -175,7 +183,7 @@ function readDB(){
     console.log("anzahl");
 }
 
-
+*/
 
 
 /*function weiter() {
