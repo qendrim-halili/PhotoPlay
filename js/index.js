@@ -46,6 +46,7 @@ var app = {
         document.getElementById("cameraTakePicture").addEventListener
         ("click", cameraTakePicture);
         document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
+        document.getElementById("openFilePicker").addEventListener("click", openFilePicker);
         document.getElementById("speichern").addEventListener("click", speichern);
         //document.getElementById("weiter").addEventListener("click", weiter);
 
@@ -74,8 +75,8 @@ var app = {
             encodingType: Camera.EncodingType.JPEG,
             cameraDirection: Camera.Direction.BACK,
             correctOrientation: true,
-            targetWidth: 250,
-            targetHeight: 350
+            targetWidth: 300,
+            targetHeight: 150
     });
     //Foto ausgeben
     function onSuccess(imageData)
