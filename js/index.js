@@ -63,11 +63,11 @@ navigator.camera.getPicture(onSuccess, onFail, {
     destinationType: Camera.DestinationType.DATA_URL,
     sourceType: Camera.PictureSourceType.CAMERA,
     mediaType: Camera.MediaType.PICTURE,
-    encodingType: Camera.EncodingType.JPEG,
-   // cameraDirection: Camera.Direction.BACK,
+    encodingType: Camera.EncodingType.PNG,
+    cameraDirection: Camera.Direction.BACK,
     correctOrientation: true,
-    targetWidth: 300,
-    targetHeight: 400
+    targetWidth: 250,
+    targetHeight: 350
 });
 
     function onSuccess(imageData)
@@ -79,6 +79,28 @@ navigator.camera.getPicture(onSuccess, onFail, {
 function onFail(message) {
     alert('Failed because: ' + message);
 }
+}
+
+//Foto Auswahl
+// Get the modal
+var modal = document.getElementById('myImage');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
 }
 
 
