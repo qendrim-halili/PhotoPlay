@@ -72,7 +72,7 @@ let app = {
     },
     ftw: function (imgURI) {
         document.getElementById('msg').textContent = imgURI;
-        document.getElementById('photo').src = imgURI;
+        // document.getElementById('photo').src = imgURI;
 
     },
     wtf: function (msg) {
