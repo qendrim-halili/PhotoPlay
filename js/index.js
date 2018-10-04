@@ -46,7 +46,6 @@ var app = {
         document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
         document.getElementById("cameraGetPicture").addEventListener("click", cameraGetPicture);
         document.getElementById("speichern").addEventListener("click", speichern);
-        document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
         //document.getElementById("weiter").addEventListener("click", weiter);
 
         // readDB();
@@ -83,6 +82,7 @@ var app = {
 {
     var image = document.getElementById('myImage');
     image.src = "data:image/jpeg;base64," + imageData;
+    cameraUploadPicture(imageData);
 }
     //Alert
     function onFail(message) {
@@ -107,6 +107,7 @@ function cameraGetPicture() {
     function onSuccess(imageURL) {
         var image = document.getElementById('myImage');
         image.src = "data:image/jpeg;base64," + imageURL;
+        cameraUploadPicture(imageURL);
     }
 
     function onFail(message) {
