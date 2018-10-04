@@ -49,6 +49,7 @@ var app = {
         document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
         //document.getElementById("weiter").addEventListener("click", weiter);
 
+        // readDB();
     },
 
 
@@ -114,11 +115,33 @@ function cameraGetPicture() {
 }
 
 
+function cameraUploadPicture(imageData){
+    var storageRef = firebase.storage().ref('/');
+    var timestamp = Math.round(+new Date()/1000);
+    var picture = storageRef.child('fname' + timestamp + '.jpg');
+
+    picture.putString(imageData, 'base64', {contentType:'image/jpg'});
+
+    setTimeout(function(){
+        downloadLink(picture);
+    }, 500);
+
+}
+
+function downloadLink(picture) {
+    picture.getDownloadURL().then(function(url){
+        var image = document.getElementById('myImage');
+        image.src = String(url);
+    }).catch(function(error){
+        console.log(error);
+    });
+}
+
 function speichern() {
-    var name = document.getElementById("name").value;
+    var name = document.getElementById("fname").value;
 
     var obj = {};
-    obj [getdbId()] = {
+    obj = {
         "name": name
     };
 
@@ -148,28 +171,6 @@ function readDB(){
 }
 
 
-
-function cameraUploadPicture(imageData){
-        var storageRef = firebase.storage().ref('/');
-        var timestamp = Math.round(+new Date()/1000);
-        var picture = storageRef.child('fname' + timestamp + '.jpg');
-
-        picture.putString(imageData, 'base64', {contentType:'image/jpg'});
-
-        setTimeout(function(){
-            downloadLink(picture);
-        }, 500);
-
-}
-
-function downloadLink(picture) {
-        picture.getDownloadURL().then(function(url){
-            var image = document.getElementById('myImage');
-            image.src = String(url);
-    }).catch(function(error){
-       console.log(error);
-    });
-}
 
 
 /*function weiter() {
