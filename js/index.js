@@ -95,6 +95,7 @@ function cameraGetPicture() {
     navigator.camera.getPicture(onSuccess, onFail, {
         quality: 100,
         destinationType: Camera.DestinationType.DATA_URL,
+        mediaType: Camera.MediaType.PICTURE,
         encodingType: Camera.EncodingType.JPEG,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         targetWidth: 300,
@@ -103,7 +104,7 @@ function cameraGetPicture() {
 
     function onSuccess(imageURL) {
         var image = document.getElementById('myImage');
-        image.src = imageURL;
+        image.src = "data:image/jpeg;base64," + imageURL;
     }
 
     function onFail(message) {
