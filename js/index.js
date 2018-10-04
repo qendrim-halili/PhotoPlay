@@ -59,12 +59,12 @@ function cameraTakePicture(){
 console.log(cameraTakePicture);
 
 navigator.camera.getPicture(onSuccess, onFail, {
-    quality: 80,
+    quality: 100,
     destinationType: Camera.DestinationType.DATA_URL,
     sourceType: Camera.PictureSourceType.CAMERA,
     mediaType: Camera.MediaType.PICTURE,
     encodingType: Camera.EncodingType.JPEG,
-    cameraDirection: Camera.Direction.BACK,
+   // cameraDirection: Camera.Direction.BACK,
     targetWidth: 300,
     targetHeight: 400
 });
