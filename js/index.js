@@ -30,14 +30,27 @@ var app = {
         //CODE UNDER THIS!
         this.receivedEvent('deviceready');
 
+        //Including firebase
+        var config = {
+            apiKey: "AIzaSyB5oZuvylRr_LwK4cbC12RZWYpLYoQKBoI",
+            authDomain: "photoplay-2018.firebaseapp.com",
+            databaseURL: "https://photoplay-2018.firebaseio.com",
+            projectId: "photoplay-2018",
+            storageBucket: "photoplay-2018.appspot.com",
+            messagingSenderId: "204245404390"
+        };
+        firebase.initializeApp(config);
 
         // Write
         // getElementById
         document.getElementById("cameraTakePicture").addEventListener
         ("click", cameraTakePicture);
-        document.getElementById("weiter").addEventListener("click", weiter);
+        document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
+        document.getElementById("speichern").addEventListener("click", speichern);
+        //document.getElementById("weiter").addEventListener("click", weiter);
 
     },
+
 
 
     receivedEvent: function(id) {
@@ -76,10 +89,85 @@ var app = {
     }
 }
 
-function weiter() {
+function openFilePicker(selection) {
+
+    var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
+    var options = setOptions(srcType);
+    var func = createNewFileEntry;
+
+    navigator.camera.getPicture(function cameraSuccess(imageUri) {
+
+
+
+    }, function cameraError(error) {
+        console.debug("Gallerieauswahl nicht möglich: " + error, "app");
+
+    }, options);
+}
+
+
+function speichern() {
+    var name = document.getElementById("name").value;
+
+    var obj = {};
+    obj [getdbId()] = {
+        "name": name
+    };
+
+    console.log(obj);
+    writeFirebaseObject(obj);
+
+    console.log("verschickt");
+}
+
+function getdbId() {
+    var database = firebase.database();
+
+    return("null");
+}
+
+function writeFirebaseObject(obj){
+    firebase.database().ref("name/").push(obj);
+}
+
+function readDB(){
+    var firebaseHeadingRef = firebase.database().ref("name");
+
+    firebaseHeadingRef.on('value', function (datasnapshot){
+        consolge.log(datasnapshot.val());
+    });
+    console.log("anzahl");
+}
+
+
+
+function cameraUploadPicture(imageData){
+        var storageRef = firebase.storage().ref('/');
+        var timestamp = Math.round(+new Date()/1000);
+        var picture = storageRef.child('fname' + timestamp + '.jpg');
+
+        picture.putString(imageData, 'base64', {contentType:'image/jpg'});
+
+        setTimeout(function(){
+            downloadLink(picture);
+        }, 500);
+
+}
+
+function downloadLink(picture) {
+        picture.getDownloadURL().then(function(url){
+            var image = document.getElementById('myImage');
+            image.src = String(url);
+    }).catch(function(error){
+       console.log(error);
+    });
+}
+
+
+/*function weiter() {
         document.getElementById('fname');
         document.getElementById('speichern');
-}
+}*/
 
 
 
