@@ -99,6 +99,7 @@ function cameraGetPicture() {
         mediaType: Camera.MediaType.PICTURE,
         encodingType: Camera.EncodingType.JPEG,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+        correctOrientation: true,
         targetWidth: 300,
         targetHeight: 200
     });
@@ -115,6 +116,7 @@ function cameraGetPicture() {
 }
 
 
+//Upload pic in Firebase
 function cameraUploadPicture(imageData){
     var storageRef = firebase.storage().ref('/');
     var timestamp = Math.round(+new Date()/1000);
@@ -131,11 +133,13 @@ function cameraUploadPicture(imageData){
 function downloadLink(picture) {
     picture.getDownloadURL().then(function(url){
         var image = document.getElementById('myImage');
-        image.src = String(url);
+        image.src = "data:image/jpeg;base64," + String(url);
     }).catch(function(error){
         console.log(error);
     });
 }
+
+
 
 function speichern() {
     var name = document.getElementById("fname").value;
