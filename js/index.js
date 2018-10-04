@@ -27,17 +27,12 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-
+        //CODE UNDER THIS!
         this.receivedEvent('deviceready');
 
-        //local Storage
-        window.localStorage.setItem("id", "546");
-        var value = window.localStorage.getItem("id");
-        console.log(value);
 
-        // Schrib wat wötsch
-       // document.getElementById('suchen').addEventListener('click', suchen, false);
-       // document.addEventListener('click', init);
+        // Write
+        // getElementById
         document.getElementById("cameraTakePicture").addEventListener
         ("click", cameraTakePicture);
 
@@ -53,38 +48,38 @@ var app = {
 
 
 };
+    //Fotoeigenschaften
+    function cameraTakePicture(){
 
-function cameraTakePicture(){
+        console.log(cameraTakePicture);
 
-console.log(cameraTakePicture);
-
-navigator.camera.getPicture(onSuccess, onFail, {
-    quality: 100,
-    destinationType: Camera.DestinationType.DATA_URL,
-    sourceType: Camera.PictureSourceType.CAMERA,
-    mediaType: Camera.MediaType.PICTURE,
-    encodingType: Camera.EncodingType.PNG,
-    cameraDirection: Camera.Direction.BACK,
-    correctOrientation: true,
-    targetWidth: 250,
-    targetHeight: 350
-});
-
+        navigator.camera.getPicture(onSuccess, onFail, {
+            quality: 100,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            mediaType: Camera.MediaType.PICTURE,
+            encodingType: Camera.EncodingType.PNG,
+            cameraDirection: Camera.Direction.BACK,
+            correctOrientation: true,
+            targetWidth: 250,
+            targetHeight: 350
+    });
+    //Foto ausgeben
     function onSuccess(imageData)
 {
     var image = document.getElementById('myImage');
     image.src = "data:image/jpeg;base64," + imageData;
 }
-
-function onFail(message) {
-    alert('Failed because: ' + message);
+    //Alert
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
 }
-}
 
 
 
 
-
+//Menu-Bar
 window.fn = {};
 
 window.fn.open = function() {
