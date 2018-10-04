@@ -28,13 +28,12 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        document.getElementById('suchen').addEventListener('click', suchen, false);
-
+        document.getElementById('suchen').addEventListener('click', suchen, false);4
+        document.addEventListener('deviceready', app.init);
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function(foto) {
-    }
+
 };
 
 
@@ -55,7 +54,8 @@ window.fn.load = function(page) {
 
 
 
-function onDeviceReady() {
+/*function onDeviceReady() {
     console.log(navigator.camera);
-}
+}*/
+
 app.initialize();
