@@ -62,29 +62,29 @@ var app = {
 
 };
 
-    //Fotoeigenschaften
-    function cameraTakePicture(){
+//Fotoeigenschaften
+function cameraTakePicture(){
 
-        console.log(cameraTakePicture);
+    console.log(cameraTakePicture);
 
-        navigator.camera.getPicture(onSuccess, onFail, {
-            quality: 100,
-            destinationType: Camera.DestinationType.DATA_URL,
-            sourceType: Camera.PictureSourceType.CAMERA,
-            mediaType: Camera.MediaType.PICTURE,
-            encodingType: Camera.EncodingType.JPEG,
-            cameraDirection: Camera.Direction.BACK,
-            correctOrientation: true,
-            targetWidth: 250,
-            targetHeight: 150
+    navigator.camera.getPicture(onSuccess, onFail, {
+        quality: 100,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        mediaType: Camera.MediaType.PICTURE,
+        encodingType: Camera.EncodingType.JPEG,
+        cameraDirection: Camera.Direction.BACK,
+        correctOrientation: true,
+        targetWidth: 250,
+        targetHeight: 150
     });
     //Foto ausgeben
     function onSuccess(imageData)
-{
-    var image = document.getElementById('myImage');
-    image.src = "data:image/jpeg;base64," + imageData;
-    //cameraUploadPicture(imageData);
-}
+    {
+        var image = document.getElementById('myImage');
+        image.src = "data:image/jpeg;base64," + imageData;
+        //cameraUploadPicture(imageData);
+    }
     //Alert
     function onFail(message) {
         alert('Failed because: ' + message);
@@ -164,37 +164,28 @@ function downloadLink(picture) {
 
 /*function speichern() {
     var name = document.getElementById("fname").value;
-
     var obj = {};
     obj = {
         "name": name
     };
-
     console.log(obj);
     writeFirebaseObject(obj);
-
     console.log("verschickt");
 }
-
 function getdbId() {
     var database = firebase.database();
-
     return("null");
 }
-
 function writeFirebaseObject(obj){
     firebase.database().ref("name/").push(obj);
 }
-
 function readDB(){
     var firebaseHeadingRef = firebase.database().ref("name");
-
     firebaseHeadingRef.on('value', function (datasnapshot){
         consolge.log(datasnapshot.val());
     });
     console.log("anzahl");
 }
-
 */
 
 
@@ -210,15 +201,15 @@ function readDB(){
 window.fn = {};
 
 window.fn.open = function() {
-  var menu = document.getElementById('menu');
-  menu.open();
+    var menu = document.getElementById('menu');
+    menu.open();
 };
 
 window.fn.load = function(page) {
-  var content = document.getElementById('content');
-  var menu = document.getElementById('menu');
-  content.load(page)
-    .then(menu.close.bind(menu));
+    var content = document.getElementById('content');
+    var menu = document.getElementById('menu');
+    content.load(page)
+        .then(menu.close.bind(menu));
 };
 
 
