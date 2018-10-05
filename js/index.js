@@ -45,9 +45,9 @@ var app = {
         // getElementById
         document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
         document.getElementById("cameraGetPicture").addEventListener("click", cameraGetPicture);
+        // document.getElementById("fname").addEventListener("click", cameraUploadPicture);
         document.getElementById("cameraUploadPicture").addEventListener("click", cameraUploadPicture);
         document.getElementById("show").addEventListener("click", show);
-
         // readDB();
     },
 
@@ -83,7 +83,7 @@ var app = {
 {
     var image = document.getElementById('myImage');
     image.src = "data:image/jpeg;base64," + imageData;
-    cameraUploadPicture(imageData);
+    //cameraUploadPicture(imageData);
 }
     //Alert
     function onFail(message) {
@@ -92,23 +92,31 @@ var app = {
 }
 
 
+
+
+//Picture get of gallery
 function cameraGetPicture() {
 
     navigator.camera.getPicture(onSuccess, onFail, {
         quality: 100,
         destinationType: Camera.DestinationType.DATA_URL,
         mediaType: Camera.MediaType.PICTURE,
-        encodingType: Camera.EncodingType.JPEG,
+        //encodingType: Camera.EncodingType.JPEG,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         correctOrientation: true,
-        targetWidth: 300,
-        targetHeight: 200
+        //targetWidth: 300,
+        //targetHeight: 200
     });
+
+
 
     function onSuccess(imageURL) {
         var image = document.getElementById('myImage');
-        image.src = "data:image/jpeg;base64," + imageURL;
-        cameraUploadPicture(imageURL);
+        var fcode = document.getElementById('fcode');
+        var src = "data:image/jpeg;base64," + imageURL;
+        image.src = src;
+        fcode.value = imageURL;
+        //cameraUploadPicture(imageURL);
     }
 
     function onFail(message) {
@@ -119,30 +127,34 @@ function cameraGetPicture() {
 
 //Show Textbox and button
 function show() {
+
     document.getElementById('hidden').style.display = "block";
 }
 
 
 //Upload pic in Firebase
-function cameraUploadPicture(imageData){
-    var name = document.getElementById("fname").value;
+function cameraUploadPicture(){
+    var imageData = document.getElementById('fcode').value;
     var storageRef = firebase.storage().ref('/');
     var timestamp = Math.round(+new Date()/1000);
-    var picture = storageRef.child(name + timestamp + '.jpg');
+    var pName = document.getElementById("fname").value;
+    console.log(pName);
+    var picture = storageRef.child(pName   + timestamp + '.jpg');
 
     picture.putString(imageData, 'base64', {contentType:'image/jpg'});
 
     //Upload Zeit
     setTimeout(function(){
         downloadLink(picture);
-    }, 500);
+    }, 1500);
 
 }
 
 function downloadLink(picture) {
     picture.getDownloadURL().then(function(url){
         var image = document.getElementById('myImage');
-        image.src = "data:image/jpeg;base64," + String(url);
+        image.src = String(url);
+
     }).catch(function(error){
         console.log(error);
     });

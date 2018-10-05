@@ -100,22 +100,23 @@
             Mit dieser Applikation kann man Fotos, welche man gerade geschossen hat, beschreiben
             und weiss damit, wo diese entstanden sind.
         </p>
-        <img id = "myImage" style="margin-left:12%;"></img>
-        <!--<div><button onclick="show" class="button-foto" style="margin-left:15%; margin-top: 7%;">Weiter</button></div>-->
-        <div><input class="button-foto" style="margin-left: 15%; margin-top: 7%;" type="button" name="answer" value="Weiter" id="show" /></div>
+        <div><img id = "myImage" style="margin-left:12%;"></img></div>
+
+        <div><input class="button-foto" style="margin-left: 15%; margin-top: 7%; position: relative;" type="button" name="answer" value="Weiter" id="show" /></div>
 
         <div id="hidden" style="display:none;">
             <form>
                 <input type="text" id="fname" name="fname" placeholder="Name">
+                <input type="hidden" value="" name="fcode" id="fcode">
             </form>
             <button id="cameraUploadPicture" class="button-speichern" style="margin-left:15%; margin-top: 1%;">Speichern</button>
         </div>
         <div class="toolbar__center">
 
-            <div class="bottom-bar">
-                <div class="bottom-bar__line-height" style="text-align:center"><button id="cameraTakePicture" class="button-foto">Foto machen</button><button id="cameraGetPicture" class="button-foto">Gallerie</button></div>
-            </div>
+        <div class="bottom-bar">
+             <div class="bottom-bar__line-height" style="text-align:center"><button id="cameraTakePicture" class="button-foto">Foto machen</button><button id="cameraGetPicture" class="button-foto">Gallerie</button></div>
         </div>
+     </div>
     </ons-page>
 
 </template>
