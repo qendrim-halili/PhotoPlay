@@ -139,7 +139,7 @@ function cameraUploadPicture(){
     var timestamp = Math.round(+new Date()/1000);
     var pName = document.getElementById("fname").value;
     console.log(pName);
-    var picture = storageRef.child(pName   + timestamp + '.jpg');
+    var picture = storageRef.child(pName   + "-" + timestamp + '.jpg');
 
     picture.putString(imageData, 'base64', {contentType:'image/jpg'});
 
