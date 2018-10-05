@@ -75,8 +75,8 @@ var app = {
             encodingType: Camera.EncodingType.JPEG,
             cameraDirection: Camera.Direction.BACK,
             correctOrientation: true,
-            targetWidth: 300,
-            targetHeight: 200
+            targetWidth: 250,
+            targetHeight: 150
     });
     //Foto ausgeben
     function onSuccess(imageData)
@@ -104,8 +104,8 @@ function cameraGetPicture() {
         //encodingType: Camera.EncodingType.JPEG,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         correctOrientation: true,
-        //targetWidth: 300,
-        //targetHeight: 200
+        targetWidth: 250,
+        targetHeight: 150
     });
 
 
